@@ -17,6 +17,12 @@ Templates are included by a filename enclosed in brackets. In the example below,
 <div class="navbar">...</div>
 ```
 
+To build the template:
+
+```
+./template index.template.html index.html
+```
+
 #### index.html
 ```
 <body>
@@ -51,6 +57,12 @@ exports.main = function() {
 }
 ```
 
+To build the template:
+
+```
+./template index.template.html index.html
+```
+
 #### index.html
 ```
 <body>
@@ -62,8 +74,5 @@ exports.main = function() {
 </body>
 ```
 
-To compile the output, you need node.js installed.
-
-```
-./template index.template.html index.html
-```
+## Dependenceis
+node.js
