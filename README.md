@@ -38,7 +38,7 @@ exports.main = function() {
 To evaluate the templates and build the output:
 
 ```
-./template index.template.html index.html
+node template.js index.template.html index.html
 ```
 
 `index.html`
@@ -52,6 +52,3 @@ To evaluate the templates and build the output:
 </body>
 
 ```
-
-## Dependenceis
-node.js
