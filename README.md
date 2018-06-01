@@ -4,7 +4,7 @@ template.js is a templating engine for websites. It can copy html from one file 
 ## Usage
 Templates are included by a filename enclosed in brackets. In the example below, `[header.html]` includes an html template.
 
-### index.template.html
+#### index.template.html
 ```
 <body>
 	[header.html]
@@ -15,6 +15,14 @@ Templates are included by a filename enclosed in brackets. In the example below,
 #### header.html
 ```
 <div class="navbar">...</div>
+```
+
+#### index.html
+```
+<body>
+	<div class="navbar">...</div>
+	<h1>Hello, World</h1>
+</body>
 ```
 
 Similarly, in the example below, `[images.html]` evaluates a javascript template.
@@ -32,7 +40,7 @@ exports.main = function() {
 	let fs = require('fs');
 
 	var html = [];
-	html.push("<div class=\"navbar\">");
+	html.push("<div class=\"grid\">");
 	fs.readdirSync("img/").forEach(file => {
 		let src = `img/${file.toString()}`;
 		let img = `\t\t<img src="${src}"/>`;
@@ -43,7 +51,18 @@ exports.main = function() {
 }
 ```
 
-To build your templates, you need node.js installed.
+#### index.html
+```
+<body>
+	<h1>Hello, World</h1>
+	<div class="grid>
+		<img src=.../>
+		...
+	</div>
+</body>
+```
+
+To compile the output, you need node.js installed.
 
 ```
 ./template index.template.html index.html
