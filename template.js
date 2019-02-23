@@ -6,13 +6,15 @@ let args = process.argv.slice(2);
 if (!Array.isArray(args) || args.length != 2) {
     throw "usage: template [input] [output]";
 }
+let inputPath = args[0];
+let outputPath = args[1];
 
 // Read input
 let blueprint = "";
 try {
-    blueprint = fs.readFileSync(args[0]).toString();
+    blueprint = fs.readFileSync(inputPath).toString();
 } catch (error) {
-    throw "unable to read from file " + args[0];
+    throw "unable to read from file " + inputPath;
 }
 
 // Find templates
@@ -24,7 +26,7 @@ while ((start = blueprint.indexOf("[", end)) != -1 && (end = blueprint.indexOf("
         continue;
     }
     // Check if a file path
-    let template = path.join(process.cwd(), blueprint.substring(start + 1, end));
+    let template = path.join(process.cwd(), path.dirname(inputPath), blueprint.substring(start + 1, end));
     if (!fs.existsSync(template)) {
         continue;
     }
@@ -46,7 +48,7 @@ while ((start = blueprint.indexOf("[", end)) != -1 && (end = blueprint.indexOf("
 
 // Write outut
 try {
-    fs.writeFileSync(args[1], blueprint);
+    fs.writeFileSync(outputPath, blueprint);
 } catch (error) {
-    throw "unable to write to file " + args[1];
+    throw "unable to write to file " + outputPath;
 }
