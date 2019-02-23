@@ -1,7 +1,7 @@
 {
 	"name": "@schiffy/template.js",
 	"bin" : { "template" : "./template.js" },
-	"version": "0.1.1",
+	"version": "0.1.2",
 	"description": "template.js is a very simple templating engine.",
 	"license": "MIT",
 	"repository": "alexanderschiffhauer/template.js",
