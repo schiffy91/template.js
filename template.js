@@ -28,7 +28,7 @@ while ((start = blueprint.indexOf("[", end)) != -1 && (end = blueprint.indexOf("
         continue;
     }
     // Check if a file path
-    let template = path.join(process.cwd(), path.dirname(inputPath), blueprint.substring(start + 1, end));
+    let template = path.join(path.dirname(path.resolve(inputPath)), blueprint.substring(start + 1, end));
     if (!fs.existsSync(template)) {
         continue;
     }
@@ -38,7 +38,7 @@ while ((start = blueprint.indexOf("[", end)) != -1 && (end = blueprint.indexOf("
         extension = extension[extension.length - 1];
         if (extension == "js") {
             let js = require(template);
-            blueprint = blueprint.substring(0, start) + js.main() + blueprint.substring(end + 1);
+            blueprint = blueprint.substring(0, start) + js.main(path.dirname(template) + "/") + blueprint.substring(end + 1);
         } else if (extension == "html") {
             blueprint = blueprint.substring(0, start) + fs.readFileSync(template) + blueprint.substring(end + 1);
         }
