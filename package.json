@@ -1,0 +1,14 @@
+{
+	"name": "@schiffy/template.js",
+	"version": "0.1.0",
+	"description": "template.js is a very simple templating engine.",
+	"license": "MIT",
+	"repository": "alexanderschiffhauer/template.js",
+	"main": "template.js",
+	"keywords": [
+	  "template",
+	  "npm",
+	  "package",
+	  "schiffy"
+	]
+}
