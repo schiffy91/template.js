@@ -20,7 +20,7 @@ Templates are included by a filename enclosed in brackets.
 
 `images.js`
 ```
-exports.main = function() {
+exports.main = function(currentPath) {
 	let fs = require('fs');
 
 	var html = [];
