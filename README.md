@@ -77,9 +77,7 @@ This file is JavaScript that will be evaluated each time it's included. All dyna
 exports.main = function(currentPath) {
 	let fs = require("fs");
 	var html = [];
-	fs.readdirSync("img/").forEach(file => {
-		html.push(`<img src="img/${file.toString()}/>`);
-	});
+	fs.readdirSync("img/").forEach(file => { html.push(`<img src="img/${file.toString()}/>`); });
 	return html.join('\n');
 }
 ```
