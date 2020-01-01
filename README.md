@@ -19,7 +19,7 @@ This file will be compiled into `index.html` and includes two templates: `header
 ```
 
 ### header.html
-This file is static HTML that can be included in any of your website's pages.
+This file is static HTML that can be included in any of your website's pages. Support for nested templates is planned.
 ```
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
@@ -72,7 +72,7 @@ This file is static HTML that can be included in any of your website's pages.
 ```
 
 ### images.js
-This file is JavaScript that will be evaluated each time it's included. All dynamic templates can consume an optional parameter, `currentPath`. Support for custom parameters is planned.
+This file is JavaScript that will be evaluated each time it's included. All JavaScript templates can consume an optional parameter, `currentPath`. Support for custom parameters is planned.
 ```
 exports.main = function(currentPath) {
 	let fs = require("fs");
