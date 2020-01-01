@@ -19,7 +19,7 @@ This file will be compiled into `index.html` and includes two templates: `header
 ```
 
 ### header.html
-This file is static HTML that can be included in any of your website's pages. Support for nested templates is planned.
+This file is static HTML that can be included in any of your website's pages. Recursive templates are supported.
 ```
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
