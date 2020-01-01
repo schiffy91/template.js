@@ -84,8 +84,6 @@ exports.main = function(currentPath) {
 
 ### index.html
 The final result
-
-`index.html`
 ```
 <!DOCTYPE html>
 <html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:fb="http://ogp.me/ns/fb#">
