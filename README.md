@@ -9,7 +9,7 @@ To compile `index.template.html` into `index.html` simply use node: `node templa
 ## Example
 
 ### index.template.html
-This file will be compiled into `index.html` and includes two templates: `header.html` and `footer.js`:
+This file will be compiled into `index.html` and includes two templates: `header.html` and `images.js`:
 
 ```
 [header.html]
