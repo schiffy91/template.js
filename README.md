@@ -1,54 +1,47 @@
 # template.js
-template.js is a templating engine for websites. It can copy html from one file to another; it can also evaluate javascript and include its output in another file. 
+template.js is a compile-time templating framework for websites. It can share HTML (e.g. headers and footers) across files; it can also use generated output from JavaScript.
 
 ## Usage
-Templates are included by a filename enclosed in brackets.
+Templates are included using their filename enclosed in brackets (e.g. `[FILENAME.EXTENSION]`).
 
-`index.template.html`
+To compile `index.template.html` into `index.html` simply use node:
+
+`node template.js index.template.html index.html`
+
+## Example
+
+### index.template.html
+This file will be compiled into `index.html` and includes two templates: `header.html` and `footer.js`:
+
 ```
 <body>
 	[header.html]
-	<h1>Hello, World</h1>
-	[images.js]
+	[body.js]
 </body>
 ```
 
-`header.html`
+### header.html
+This file is static HTML that can be included in any of your website's pages.
 ```
-<div class="navbar">...</div>
+<div class="navbar"></div>
 ```
 
-`images.js`
+### body.js
+This file is JavaScript that will be evaluated each time it's included. All dynamic templates can consume an optional parameter, `currentPath`. Support for custom parameters is planned.
 ```
-exports.main = function(currentPath) {
-	let fs = require('fs');
-
-	var html = [];
-	html.push("<div class=\"grid\">");
-	fs.readdirSync("img/").forEach(file => {
-		let src = `img/${file.toString()}`;
-		let img = `\t\t<img src="${src}"/>`;
-		html.push(img);
-	})
-	html.push("\t</div>")
-	return html.join('\n');
+exports.main = function() {
+	return "<h1>Hello, World</h1>";
 }
 ```
 
-To evaluate the templates and build the output:
-
-```
-node template.js index.template.html index.html
-```
+### index.html
+The final result
 
 `index.html`
 ```
 <body>
 	<div class="navbar">...</div>
 	<h1>Hello, World</h1>
-	<div class="grid>
-		<img src=.../>
-	</div>
 </body>
 
 ```
