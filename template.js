@@ -30,7 +30,7 @@ function compile(inputPath) {
         if (!fs.existsSync(template)) {
             continue;
         }
-        // Replace template
+        // Recursively compile template
         try {
             let extension = template.split(".");
             extension = extension[extension.length - 1];
